@@ -34,7 +34,7 @@ const Articles = ({ articles }) =>
   </ul>
 
 const Article = ({ article }) =>
-  <a href={article.url}>{article.title}</a>
+  {article.title}
 
 // connecting view layer to state layer with react-redux
 
