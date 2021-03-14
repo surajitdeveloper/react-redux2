@@ -3,6 +3,7 @@ const INITIAL_STATE = {
 };
 
 function searchReducer(state = INITIAL_STATE, action) {
+  console.log("Search reducer --- ", action);
   switch (action.type) {
     case 'SEARCH_SET':
       return { ...state, searchTerm: action.searchTerm };

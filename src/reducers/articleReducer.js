@@ -16,8 +16,9 @@ const INITIAL_STATE = {
 };
 
 function articleReducer(state = INITIAL_STATE, action) {
+  console.log("article reduces --- ", action)
   switch (action.type) {
-    default: return state;
+    default: return state; //[]
   }
 }
 

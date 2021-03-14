@@ -8,16 +8,18 @@ const App = ({ articles, searchTerm, onSearch }) =>
   <div>
     <Search value={searchTerm} onSearch={onSearch}>
       <p>Search</p>
+      {/* <p>{articles}</p> */}
     </Search>
 
+    {/* <Articles articles={articles.length > 0 ? articles.filter(applyFilter(searchTerm)) : []} /> */}
     <Articles articles={articles.filter(applyFilter(searchTerm))} />
 
-    <p>Take the journey to learn Redux in <a href={'https://roadtoreact.com/'}>Taming the State in React</a></p>
   </div>
 
 const Search = ({ value, onSearch, children }) =>
   <div>
     {children} <input
+      className='form-control'
       value={value}
       onChange={event => onSearch(event.target.value)}
       type="text"
@@ -34,7 +36,7 @@ const Articles = ({ articles }) =>
   </ul>
 
 const Article = ({ article }) =>
-  {article.title}
+  <div>{article.title}</div>
 
 // connecting view layer to state layer with react-redux
 
@@ -44,7 +46,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSearch: searchTerm => dispatch({ type: 'SEARCH_SET', searchTerm }),
+  onSearch: searchTerm =>{
+    console.log(searchTerm);
+    dispatch({ type: 'SEARCH_SET', searchTerm })
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
